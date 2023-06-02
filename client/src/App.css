@@ -2,7 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .cont_width{
   width:min(400px, 100% - 2rem);
   margin:0 auto;
+}
+
+.main_container{
+  height: calc(100vh - 77px);
+}
+._container{
+  height: 100%;
+}
+.user_item{
+  height: calc(100vh - calc(77.35px + 65.6px));
+  overflow-y: auto;
+}
+.side_bar{
+  height: calc(100vh - 77px);
+}
+
+/* user scroll bar light mode */
+::-webkit-scrollbar {
+  width: 5px;
+}
+.light::-webkit-scrollbar-track {
+  background:#B7E0CA;
+}
+.light.user_item::-webkit-scrollbar-thumb{
+  background-color: #B7E0CA;
+}
+.light.user_item:hover::-webkit-scrollbar-thumb{
+  background-color: #a7a6a6;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 200rem;
+}
+
+
+
+/* user scroll Bar dark mode */
+
+.dark::-webkit-scrollbar-track {
+  background:#0F0F04;
+}
+.dark.user_item::-webkit-scrollbar-thumb{
+  background-color: #0F0F04;
+}
+.dark.user_item:hover::-webkit-scrollbar-thumb{
+  background-color: #eafaf0;
 }
