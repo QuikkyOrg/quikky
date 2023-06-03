@@ -72,7 +72,7 @@ export const SelectUser = (props) => {
             style={theme[props.mode].searchBar}
           >
             <input
-              className="focus:outline-none px-5 "
+              className="focus:outline-none px-5 w-full"
               type="text"
               value={search}
               onChange={handleSearchInput}
@@ -124,9 +124,7 @@ export const SelectUser = (props) => {
                 ) {
                   return user;
                 }
-                // else if(user.userName.toLowerCase().not.includes(search.toLowerCase())){
-                //   
-                // }
+                
               })
               .map((user) => (
                 <div
@@ -173,7 +171,6 @@ export const SelectUser = (props) => {
                     className="bg-white w-auto h-0.5"
                     style={theme[props.mode].selectUser}
                   />
-                  {/* style={theme[props.mode].selectUser} */}
                 </div>
               ))}
           </div>
@@ -181,11 +178,5 @@ export const SelectUser = (props) => {
       </div>
       <div className="w-2 side_bar" style={theme[props.mode].sideBar} />
     </div>
-    // {profileOpen && (
-    //   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50">
-    //     <img src={user.profile} alt=" no image" />
-    //     <button className="absolute pl-4/5" onClick={() => setProfileOpen(false)}>X</button>
-    //   </div>
-    // )}
   );
 };
