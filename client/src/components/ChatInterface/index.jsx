@@ -3,6 +3,7 @@ import "../../App.css";
 import { theme } from "../Theme";
 import Chat from "../chat";
 import ShortCutBar from "../ShortCutBar";
+import ChatBox from "../atoms/ChatBox";
 
 const ChatInterface = ({ mode }) => {
   return (
@@ -40,6 +41,8 @@ const ChatInterface = ({ mode }) => {
               mode={mode}
             />
           </div>
+
+          <ChatBox />
         </div>
         <ShortCutBar mode={mode} />
       </div>

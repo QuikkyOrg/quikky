@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Picker from "emoji-picker-react";
 
-function SendText(props) {
+function ChatBox({ value, mode }) {
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Submit query:", props.value);
+    console.log("Submit query:", value);
   }
   const [inputStr, setInputStr] = useState("");
   const [showPicker, setShowPicker] = useState(false);
@@ -14,16 +14,28 @@ function SendText(props) {
     setShowPicker(false);
   };
   return (
-    <>
+    <div className="chatbox">
       {showPicker && (
-        <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
-      )}
-      <div className="flex border items-center justify-between rounded-full w-full p-2 shadow-md pl-4">
-        <img
-          className="w-9 h-9 pl-1"
-          src="../../../public/emojji.svg"
-          onClick={() => setShowPicker((val) => !val)}
+        <Picker
+          className="emoji_picker"
+          pickerStyle={{ width: "50%" }}
+          onEmojiClick={onEmojiClick}
         />
+      )}
+      <div className="flex border items-center justify-between rounded-full w-full shadow-md pl-4">
+        {mode === "light" ? (
+          <img
+            className="w-9 h-9 pl-1"
+            src="assets/emoji_light.svg"
+            onClick={() => setShowPicker((val) => !val)}
+          />
+        ) : (
+          <img
+            className="w-9 h-9 pl-1"
+            src="assets/emoji_dark.svg"
+            onClick={() => setShowPicker((val) => !val)}
+          />
+        )}
         <input
           className="focus:outline-none px-5 w-full"
           type="textarea"
@@ -39,8 +51,8 @@ function SendText(props) {
           <img src="../../../public/bird.svg" />
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
-export default SendText;
+export default ChatBox;
