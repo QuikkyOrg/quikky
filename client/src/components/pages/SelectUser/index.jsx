@@ -72,7 +72,7 @@ export const SelectUser = (props) => {
             style={theme[props.mode].searchBar}
           >
             <input
-              className="focus:outline-none px-5 "
+              className="focus:outline-none px-5 w-full"
               type="text"
               value={search}
               onChange={handleSearchInput}
