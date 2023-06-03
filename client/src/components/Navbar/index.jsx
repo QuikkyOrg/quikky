@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { theme } from "../../Theme";
-import { SelectUser } from "../SelectUser";
+import { theme } from "../../components/Theme";
+// import { SelectUser } from "../SelectUser";
 
-export const AppBar = () => {
-  const [mode, setMode] = useState("light");
+export const Navbar = ({ mode, setMode }) => {
+  // const [mode, setMode] = useState("light");
   const modeHandleClick = () => {
     setMode(mode === "light" ? "dark" : "light");
   };
@@ -98,7 +98,6 @@ export const AppBar = () => {
           </div>
         </div>
       </div>
-      <SelectUser mode={mode} />
     </>
   );
 };

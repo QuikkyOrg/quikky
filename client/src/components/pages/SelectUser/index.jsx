@@ -44,7 +44,7 @@ const users = [
   ]),
 ];
 
-export const SelectUser = (props) => {
+export const SelectUser = ({ mode }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -63,27 +63,25 @@ export const SelectUser = (props) => {
   };
   return (
     <div className="main_container flex flex-row">
-      <div className="_container " style={theme[props.mode].selectUser}>
-        <div
-          className=" w-96 p-3 flex justify-center search_bar"
-        >
+      <div className="_container " style={theme[mode].selectUser}>
+        <div className=" w-96 p-3 flex justify-center search_bar">
           <div
             className="flex border items-center justify-between rounded-full w-full p-2 shadow-md"
-            style={theme[props.mode].searchBar}
+            style={theme[mode].searchBar}
           >
             <input
-              className="focus:outline-none px-5 "
+              className="focus:outline-none pl-3 w-full"
               type="text"
               value={search}
               onChange={handleSearchInput}
               placeholder="find your mate . . . . . . . . "
-              style={theme[props.mode].searchBar}
+              style={theme[mode].searchBar}
             />
             <button
               type="submit"
-              className="focus:outline-none focus:shadow-outline hover:transform hover:scale-125 transition duration-200 ease-in-out px-5"
+              className="focus:outline-none focus:shadow-outline hover:transform hover:scale-125 transition duration-200 ease-in-out pr-3 pl-2"
             >
-              {search === "" && props.mode === "light" ? (
+              {search === "" && mode === "light" ? (
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -95,9 +93,9 @@ export const SelectUser = (props) => {
                 >
                   <path d="M22 22L15.5 15.5M15.5 15.5C17.9853 13.0152 17.9853 8.98479 15.5 6.5C13.0152 4.01472 8.98479 4.01472 6.5 6.5C4.01472 8.98479 4.01472 13.0152 6.5 15.5C8.98479 17.9853 13.0152 17.9853 15.5 15.5Z" />
                 </svg>
-              ) : (search === "" && props.mode === "dark") ? (
-                <img className="w-6 h-6 " src="assets/searchDark.svg" alt="" />
-              ) : (search != "" && props.mode === "light") ? (
+              ) : search === "" && mode === "dark" ? (
+                <img className="w-5 h-5 " src="assets/searchDark.svg" alt="" />
+              ) : search != "" && mode === "light" ? (
                 <p onClick={handleClearClick}>X</p>
               ) : (
                 <p onClick={handleClearClick}>X</p>
@@ -108,9 +106,7 @@ export const SelectUser = (props) => {
         <div className="  items-center">
           <div
             className={
-              props.mode === "light"
-                ? "w-96 user_item light"
-                : "w-96 user_item dark"
+              mode === "light" ? "w-96 user_item light" : "w-96 user_item dark"
             }
           >
             {users
@@ -118,21 +114,19 @@ export const SelectUser = (props) => {
                 if (search == "") {
                   return user;
                 } else if (
-                  user.userName
-                    .toLowerCase()
-                    .includes(search.toLowerCase())
+                  user.userName.toLowerCase().includes(search.toLowerCase())
                 ) {
                   return user;
                 }
                 // else if(user.userName.toLowerCase().not.includes(search.toLowerCase())){
-                //   
+                //
                 // }
               })
               .map((user) => (
                 <div
                   key={user}
                   onClick={handleClick}
-                  style={theme[props.mode].selectUser.user}
+                  style={theme[mode].selectUser.user}
                 >
                   <div className="flex justify-between h-24 items-center">
                     <div className="flex gap-7 p-3">
@@ -162,7 +156,7 @@ export const SelectUser = (props) => {
                       {user.latestMsg.length > 0 && (
                         <div
                           className=" w-6 h-6 text-center rounded-full text-white"
-                          style={theme[props.mode].selectUser.user.msgCount}
+                          style={theme[mode].selectUser.user.msgCount}
                         >
                           {user.latestMsg.length}
                         </div>
@@ -171,15 +165,15 @@ export const SelectUser = (props) => {
                   </div>
                   <div
                     className="bg-white w-auto h-0.5"
-                    style={theme[props.mode].selectUser}
+                    style={theme[mode].selectUser}
                   />
-                  {/* style={theme[props.mode].selectUser} */}
+                  {/* style={theme[mode].selectUser} */}
                 </div>
               ))}
           </div>
         </div>
       </div>
-      <div className="w-2 side_bar" style={theme[props.mode].sideBar} />
+      <div className="w-2 side_bar" style={theme[mode].sideBar} />
     </div>
     // {profileOpen && (
     //   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50">
