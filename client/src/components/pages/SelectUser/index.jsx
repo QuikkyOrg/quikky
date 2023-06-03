@@ -118,9 +118,7 @@ export const SelectUser = ({ mode }) => {
                 ) {
                   return user;
                 }
-                // else if(user.userName.toLowerCase().not.includes(search.toLowerCase())){
-                //
-                // }
+                
               })
               .map((user) => (
                 <div
@@ -167,7 +165,6 @@ export const SelectUser = ({ mode }) => {
                     className="bg-white w-auto h-0.5"
                     style={theme[mode].selectUser}
                   />
-                  {/* style={theme[mode].selectUser} */}
                 </div>
               ))}
           </div>
@@ -175,11 +172,5 @@ export const SelectUser = ({ mode }) => {
       </div>
       <div className="w-2 side_bar" style={theme[mode].sideBar} />
     </div>
-    // {profileOpen && (
-    //   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50">
-    //     <img src={user.profile} alt=" no image" />
-    //     <button className="absolute pl-4/5" onClick={() => setProfileOpen(false)}>X</button>
-    //   </div>
-    // )}
   );
 };
